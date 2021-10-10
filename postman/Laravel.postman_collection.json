@@ -1,0 +1,166 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Laravel",
+		"_postman_id": "57d1bcdd-ea2b-f89a-26eb-b0787f854bc4",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"description": "",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", jsonData.access_token);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{domain}}/api/auth",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "user1",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "111",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"url": "{{domain}}/api/auth/logout",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Max Bas",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "maxbas@email.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "qwerty123",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "qwerty123",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book",
+			"description": "",
+			"item": [
+				{
+					"name": "GET /book/:name",
+					"request": {
+						"url": "{{domain}}/api/book/it",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "POST /book",
+					"request": {
+						"url": "{{domain}}/api/book",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"genre\": \"autobiography\",\n  \"author\": \"name_of_author\",\n  \"name\": \"I, Asimov:ssss A Memoir\"\n}\n"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ping-Pong",
+			"request": {
+				"url": "{{domain}}/api/ping",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
