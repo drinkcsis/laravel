@@ -26,10 +26,9 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Auth::provider('file', function($app, array $config) {
+        Auth::provider('customUser', function($app, array $config) {
             return new UserProvider();
         });
 
-        //
     }
 }

@@ -33,29 +33,6 @@ class UserProvider implements IlluminateUserProvider
     }
 
     /**
-     * @param mixed  $identifier
-     * @param string $token
-     *
-     * @return void
-     */
-    public function retrieveByToken($identifier, $token)
-    {
-        // Get and return a user by their unique identifier and "remember me" token
-        dd('UserProvider::retrieveByToken');
-    }
-
-    /**
-     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
-     * @param  string  $token
-     * @return void
-     */
-    public function updateRememberToken(Authenticatable $user, $token)
-    {
-        // Save the given "remember me" token for the given user
-        dd('UserProvider::updateRememberToken');
-    }
-
-    /**
      * Retrieve a user by the given credentials.
      *
      * @param  array  $credentials
@@ -109,4 +86,19 @@ class UserProvider implements IlluminateUserProvider
         }
     }
 
+    /**
+     * @inheritDoc
+     */
+    public function retrieveByToken($identifier, $token)
+    {
+        // TODO: Implement retrieveByToken() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function updateRememberToken(Authenticatable $user, $token)
+    {
+        // TODO: Implement updateRememberToken() method.
+    }
 }
