@@ -35,8 +35,9 @@ I have added 2 Facades for Services
 I have added custom UserProvider to customize behavior of Auth::provider. Look in **app/Providers/AuthServiceProvider::boot()** and **config/auth.php::providers**
 
 ## Middlewares
-I have added 1 middleware
+I have added 2 middleware
 - CustomAuth - to check is user logged in
+- ExecutionTime- to add request execution time header
 
 ## config
 I have added 2 config files
