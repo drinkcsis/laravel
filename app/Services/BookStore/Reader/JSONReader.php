@@ -19,12 +19,18 @@ class JSONReader implements Reader {
      * JSONReader constructor.
      *
      * @param string $file_path
+     *
+     * @throws \Exception
      */
     public function __construct(string $file_path)
     {
         $this->file_path = $file_path;
-        $jsonString = Storage::get($this->file_path);
-        $this->data = json_decode($jsonString, true);
+        try {
+            $jsonString = Storage::get($this->file_path);
+        } catch (\Exception $e) {
+            throw new FileNotFoundException('File not Found');
+        }
+        $this->data = json_decode($jsonString, true) ?? [];
     }
 
     /**
@@ -36,8 +42,10 @@ class JSONReader implements Reader {
 
     /**
      * @param array $data
+     *
+     * @return \App\Services\Book\Reader\viod
      */
-    public function setData(array $data){
+    public function setData(array $data): viod{
         Storage::put($this->file_path, json_encode($data));
     }
 }
