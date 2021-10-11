@@ -2,6 +2,8 @@
 
 namespace App\Services\Book;
 
+use App\Services\Book\Reader\Reader;
+
 class BookStorage implements BookStoreService {
 
     /**

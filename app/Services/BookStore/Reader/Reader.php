@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Book;
+namespace App\Services\Book\Reader;
 
 interface Reader {
     public function getData(): array;
