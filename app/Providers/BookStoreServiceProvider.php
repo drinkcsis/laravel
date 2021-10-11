@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
+use App\Services\Book\BookStorage;
 use App\Services\Book\BookStoreService;
-use App\Services\Book\JSONStorage;
+use App\Services\Book\JSONReader;
 use Illuminate\Support\ServiceProvider;
 
 class BookStoreServiceProvider extends ServiceProvider
@@ -16,7 +17,8 @@ class BookStoreServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(BookStoreService::class, static function ($app) {
-            return new JSONStorage();
+            $reader = new JSONReader(config('books.file_path'));
+            return new BookStorage($reader);
         });
     }
 }

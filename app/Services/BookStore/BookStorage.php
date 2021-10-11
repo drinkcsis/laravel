@@ -2,25 +2,22 @@
 
 namespace App\Services\Book;
 
-use Illuminate\Support\Facades\Storage;
-
-class JSONStorage implements BookStoreService {
+class BookStorage implements BookStoreService {
 
     /**
-     * @var $books array
+     * @var array $books
      */
     protected $books = [];
 
     /**
-     * @var $file_path string
+     * @var Reader $reader
      */
-    protected $file_path;
+    protected $reader;
 
-    public function __construct()
+    public function __construct(Reader $reader)
     {
-        $this->file_path = config('books.file_path');
-        $jsonString = Storage::get($this->file_path);
-        $this->books = json_decode($jsonString, true);
+        $this->reader = $reader;
+        $this->books = $this->reader->getData();
     }
 
     /**
@@ -59,7 +56,7 @@ class JSONStorage implements BookStoreService {
             ];
         }
 
-        Storage::put($this->file_path, json_encode($this->books));
+        $this->reader->setData($this->books);
 
         return $this->books;
     }
