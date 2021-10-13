@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use App\Services\Book\BookStorage;
-use App\Services\Book\BookStoreService;
-use App\Services\Book\Reader\JSONReader;
+use App\Services\BookStore\BookStorage;
+use App\Services\BookStore\BookStoreService;
+use App\Services\BookStore\Reader\JSONReader;
 use Illuminate\Support\ServiceProvider;
 
 class BookStoreServiceProvider extends ServiceProvider

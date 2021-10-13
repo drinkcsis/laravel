@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services\Book;
+namespace App\Services\BookStore;
 
-use App\Services\Book\Reader\Reader;
+use App\Services\BookStore\Reader\Reader;
 
 class BookStorage implements BookStoreService {
 

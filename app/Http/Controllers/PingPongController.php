@@ -8,6 +8,6 @@ use Validator;
 class PingPongController extends Controller {
 
     public function ping() {
-        return 'Pong';
+        return response()->json('Pong');
     }
 }

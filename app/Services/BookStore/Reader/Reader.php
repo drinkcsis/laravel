@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services\Book\Reader;
+namespace App\Services\BookStore\Reader;
 
 interface Reader {
     public function getData(): array;
-    public function setData(array $data): viod;
+    public function setData(array $data): void;
 }

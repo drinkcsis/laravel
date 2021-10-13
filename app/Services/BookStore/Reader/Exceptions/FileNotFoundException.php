@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Book\Reader;
+namespace App\Services\BookStore\Reader;
 
 class FileNotFoundException extends \Exception {
 

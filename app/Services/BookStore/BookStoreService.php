@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Book;
+namespace App\Services\BookStore;
 
 interface BookStoreService {
 

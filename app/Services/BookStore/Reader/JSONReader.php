@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Book\Reader;
+namespace App\Services\BookStore\Reader;
 
 use Illuminate\Support\Facades\Storage;
 
@@ -43,9 +43,9 @@ class JSONReader implements Reader {
     /**
      * @param array $data
      *
-     * @return \App\Services\Book\Reader\viod
+     * @return void
      */
-    public function setData(array $data): viod{
+    public function setData(array $data): void {
         Storage::put($this->file_path, json_encode($data));
     }
 }

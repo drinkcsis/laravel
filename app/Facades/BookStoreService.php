@@ -7,6 +7,6 @@ class BookStoreService extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \App\Services\Book\BookStoreService::class;
+        return \App\Services\BookStore\BookStoreService::class;
     }
 }
